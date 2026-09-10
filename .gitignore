@@ -1,0 +1,21 @@
+# TeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.pdf
+
+# OS & Editor files
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Node / Temporary files
+node_modules/
+/tmp/

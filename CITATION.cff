@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this research or concept, please cite it as below."
+authors:
+  - family-names: "Chu"
+    given-names: "Duc Kien"
+    email: "mailiekien@icloud.com"
+title: "Thermodynamische und techno-ökonomische Bewertung unterirdischer Naturzug-Schrägschächte zur passiven Kühlung und Energierückgewinnung in Hyperscale-KI-Rechenzentren"
+version: 1.0.0
+date-released: 2026-09-11
+url: "https://github.com/your-username/alpine-updraft-datacenter"
+keywords:
+  - data center cooling
+  - direct liquid cooling
+  - solar updraft tower
+  - thermosiphon
+  - PUE
+  - WUE
+  - AI infrastructure

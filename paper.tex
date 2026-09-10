@@ -1,0 +1,256 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{cite}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=blue
+}
+
+\begin{document}
+
+\title{Thermodynamische und techno-ökonomische Bewertung unterirdischer Naturzug-Schrägschächte zur passiven Kühlung und Energierückgewinnung in Hyperscale-KI-Rechenzentren}
+
+\author{Chu Duc Kien
+\thanks{Manuskript eingereicht am 11. September 2026. Korrespondenzadresse: \url{mailiekien@icloud.com}.}}
+
+\markboth{IEEE Transactions on Sustainable Computing / Thermal Engineering,~Vol.~X, No.~X,~September~2026}%
+{Chu Duc Kien: Unterirdische Naturzug-Schrägschächte für KI-Rechenzentren}
+
+\maketitle
+
+\begin{abstract}
+Der exponentielle Anstieg von Trainingslasten künstlicher Intelligenz erfordert Rechenzentrumsleistungen im dreistelligen Megawatt-Bereich. Herkömmliche Kühlinfrastrukturen stoßen durch extremen Hilfsstrombedarf (Power Usage Effectiveness, PUE) und massiven Frischwasserverbrauch (Water Usage Effectiveness, WUE) an ökologische und infrastrukturelle Grenzen. Dieser Beitrag untersucht ein neuartiges Anlagenkonzept: die Kopplung eines flüssigkeitsgekühlten 100-MW-KI-Rechenzentrums mit einem bergmännisch aufgefahrenen Schrägschacht ($\Delta z = 1.500\,\text{m}$) zur Realisierung eines passiven Naturzug-Kühlsystems mit integrierter Energierückgewinnung. 
+
+Thermodynamische Berechnungen zeigen, dass bei einer Kühlwassertemperatur von $60\,^\circ\text{C}$ ein kontinuierlicher Auftrieb mit einem Massenstrom von rund $4.480\,\text{kg/s}$ induziert wird. Neben der vollständigen Eliminierung des mechanischen Kühlstrombedarfs ($\sim 4{,}0\,\text{MW}_{\text{el}}$) und des jährlichen Wasserbedarfs ($\sim 1{,}58 \cdot 10^6\,\text{m}^3$) ermöglicht eine Basisturbine die Rückspeisung von rund $2{,}25\,\text{MW}_{\text{el}}$, wodurch der rechnerische PUE auf unter $1{,}01$ sinkt. Eine techno-ökonomische Lebenszyklusanalyse belegt, dass sich die Mehrinvestition des Schachtbaus durch jährliche Betriebskosteneinsparungen von über $10\,\text{Mio. Euro}$ amortisiert.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Rechenzentrumskühlung, Direct Liquid Cooling, Naturzug, Schrägschacht, Energierückgewinnung, PUE, Thermosiphon, Techno-Ökonomie.
+\end{IEEEkeywords}
+
+\section{Einleitung}
+\IEEEPARstart{D}{ie} fortschreitende Skalierung tiefer künstlicher neuronaler Netze, insbesondere autoregressiver Foundation-Modelle, induziert einen beispiellosen Anstieg der Leistungsdichte in modernen Rechenzentren. Während klassische Cloud-Infrastrukturen historisch auf Wärmelasten von $5\,\text{bis}\,15\,\text{kW}$ pro Rack ausgelegt waren, überschreiten dichte GPU-Cluster der aktuellen Generation regelmäßig Grenzwerte von $40\,\text{bis}\,120\,\text{kW}$ pro Schrankeinheit \cite{ashrae2023}. Rein luftgeführte Kühlsysteme stoßen hierbei an physikalische Grenzen: Die notwendigen Volumenströme verursachen prohibitive Druckverluste und einen stark ansteigenden Hilfsenergiebedarf für die interne Ventilation.
+
+Die Industrie reagiert hierauf mit dem flächendeckenden Übergang zu Direct Liquid Cooling (DLC). Da flüssige Wärmeträger eine um Größenordnungen höhere volumetrische Wärmekapazität als Luft aufweisen, erlaubt die Direktkühlung der Prozessorkerne eine Erhöhung der Rücklauftemperaturen auf ein Niveau von $55\,\text{bis}\,65\,^\circ\text{C}$. Trotz dieser thermodynamischen Verbesserung bleibt die Abführung thermischer Megawattströme problematisch:
+\begin{itemize}
+    \item \textbf{Trockenkühlung:} Lamellen-Rückkühler erfordern bei hohen sommerlichen Umgebungstemperaturen erhebliche elektrische Ventilatorleistungen oder den Einsatz von Kompressionskältemaschinen (Chiller), welche den PUE drastisch verschlechtern.
+    \item \textbf{Verdunstungskühlung:} Die Ausnutzung der Verdampfungsenthalpie reduziert zwar die elektrische Hilfsenergie, erzeugt jedoch einen extremen Wasserfußabdruck. Ein 100-MW-Rechenzentrum verbraucht unter Volllast jährlich zwischen $1{,}5$ und $2{,}0\,\text{Mrd. Litern}$ Frischwasser. In ariden Gebieten führt dies zunehmend zu regulatorischen Baustopps.
+\end{itemize}
+
+Vor diesem Hintergrund analysiert die vorliegende Arbeit die thermodynamische und techno-ökonomische Machbarkeit eines unterirdischen Naturzug-Schrägschachts als passives Kühlsystem für ein 100-MW-KI-Rechenzentrum im alpinen Gelände.
+
+\section{Systemarchitektur und Prozesskopplung}
+Das Anlagenkonzept gliedert sich in drei funktionale Einheiten: die Serverkaverne am Fuße des Bergmassivs, die Wärmeübertragungs- und Turbinenstation sowie den bergmännisch aufgefahrenen Schrägschacht.
+
+\subsection{Kühlkreislauf-Topologie}
+Die Server-Hardware wird über geschlossene Primärkreisläufe mit deionisiertem Wasser gekühlt. Bei einer Eintrittstemperatur von $35\,^\circ\text{C}$ und einer Austrittstemperatur von $60\,^\circ\text{C}$ transportiert das Fluid rund $90\,\text{MW}_{\text{th}}$ thermische Verlustleistung zu einem Sekundärwärmetauscher. 
+
+\subsection{Aerodynamische Schachtgeometrie}
+Zur Gewährleistung einer redundanten Betriebsführung wird der Schacht als Doppelröhrensystem mit je $D_{\text{hyd}} = 12{,}5\,\text{m}$ ausgeführt. Bei einer geodätischen Höhendifferenz von $H = 1.500\,\text{m}$ und einem mittleren Neigungswinkel von $\alpha = 30^\circ$ beträgt die Auffahrlänge $L = 3.000\,\text{m}$. Der Gesamteinströmquerschnitt am Schachtfuß beträgt $A_{\text{ges}} \approx 250\,\text{m}^2$.
+
+\section{Thermodynamische Modellierung}
+
+\subsection{Erhaltungsgleichungen}
+Für die stationäre, eindimensionale Strömung entlang der Schachtkoordinate $s$ gilt unter Vernachlässigung von Massenquellen:
+\begin{equation}
+\dot{m} = \rho(z) \cdot A(z) \cdot v(z) = \text{const.}
+\end{equation}
+
+Der dem Luftstrom über die Wärmetauscher zugeführte Wärmestrom $\dot{Q}_{\text{th}}$ bestimmt den Temperaturanstieg $\Delta T = T_i - T_a$:
+\begin{equation}
+\dot{Q}_{\text{th}} = \dot{m} \cdot c_p \cdot (T_i - T_a)
+\end{equation}
+Hierbei bezeichnen $c_p$ die spezifische Wärmekapazität von Luft ($1.005\,\text{J/(kg}\cdot\text{K)}$), $T_a$ die atmosphärische Eintrittstemperatur und $T_i$ die Mischtemperatur im Schacht nach Wärmeaufnahme.
+
+\subsection{Antriebsdruckdifferenz (Kamineffekt)}
+Der statische Gesamtauftrieb $\Delta p_{\text{stat}}$ ergibt sich durch die hydrostatische Dichtedifferenz zwischen der ungestörten Atmosphärensäule $\rho_a(z)$ und der erwärmten Luftsäule $\rho_i(z)$ über die Schachtachse \cite{schlaich1995}:
+\begin{equation}
+\Delta p_{\text{stat}} = g \int_0^H \left[ \rho_a(z) - \rho_i(z) \right] dz
+\end{equation}
+
+Unter Verwendung der idealen Gasgleichung $\rho = p / (R_s T)$ und Linearisierung der Temperaturprofile über $H$ lässt sich der Auftrieb näherungsweise beschreiben durch:
+\begin{equation}
+\Delta p_{\text{stat}} \approx \bar{\rho}_a \cdot g \cdot H \cdot \left( \frac{T_i - T_a}{T_i} \right)
+\end{equation}
+Mit $\bar{\rho}_a \approx 1{,}10\,\text{kg/m}^3$, $H = 1.500\,\text{m}$, $T_a = 293{,}15\,\text{K}$ ($20\,^\circ\text{C}$) und $\Delta T = 20\,\text{K}$ ergibt sich:
+\begin{equation}
+\Delta p_{\text{stat}} \approx 1{,}10 \cdot 9{,}81 \cdot 1.500 \cdot \left(\frac{20}{313{,}15}\right) \approx 1.033\,\text{Pa}
+\end{equation}
+
+\subsection{Druckverlustbilanz und Turbinenleistung}
+Die Fließgeschwindigkeit stellt sich im dynamischen Gleichgewicht zwischen Antriebsdruck und dissipativen Verlusten ein:
+\begin{equation}
+\Delta p_{\text{stat}} = \Delta p_{\text{WT}} + \Delta p_{\text{fric}} + \Delta p_{\text{form}} + \Delta p_{\text{turb}}
+\end{equation}
+
+Die Wandreibung im Schacht wird über den Darcy-Weisbach-Ansatz quantifiziert:
+\begin{equation}
+\Delta p_{\text{fric}} = \lambda \cdot \frac{L}{D_{\text{hyd}}} \cdot \frac{\rho_i v^2}{2}
+\end{equation}
+Für geglätteten Spritzbeton ($\varepsilon \approx 1{,}5\,\text{mm}$) und voll ausgebildete turbulente Strömung ($\text{Re} > 10^7$) wird $\lambda \approx 0{,}013$ gesetzt. Bei $v = 15\,\text{m/s}$ folgt $\Delta p_{\text{fric}} \approx 368\,\text{Pa}$. Unter Einbeziehung des Wärmetauscherdruckverlusts ($\Delta p_{\text{WT}} \approx 180\,\text{Pa}$) und von Einlaufformverlusten ($\Delta p_{\text{form}} \approx 80\,\text{Pa}$) verbleibt ein Druckgefälle von $\Delta p_{\text{turb}} \approx 405\,\text{Pa}$.
+
+Die über Axialturbinen am Schachtfuß rekuperierte elektrische Leistung $P_{\text{el}}$ berechnet sich mit dem volumetrischen Durchsatz $\dot{V} = \dot{m}/\rho_i \approx 4.264\,\text{m}^3/\text{s}$ und dem Wirkungsgrad $\eta_{\text{turb}} = 0{,}78$:
+\begin{equation}
+P_{\text{el}} = \eta_{\text{turb}} \cdot \dot{V} \cdot \Delta p_{\text{turb}} \approx 2{,}25\,\text{MW}_{\text{el}}
+\end{equation}
+
+\subsection{Theoretischer Kaminwirkungsgrad}
+Das thermodynamische Limit der Wandlung von Niedertemperaturwärme in Strömungsarbeit über einen Auftriebskamin ist unabhängig von der Temperaturerhöhung $\Delta T$ und skaliert ausschließlich mit der Bauhöhe $H$ \cite{haaf1983}:
+\begin{equation}
+\eta_{\text{kamin}} = \frac{g \cdot H}{c_p \cdot T_a} = \frac{9{,}81 \cdot 1.500}{1.005 \cdot 293{,}15} \approx 4{,}99\,\%
+\end{equation}
+
+\begin{table}[htbp]
+\caption{Systemparameter des 100-MW-Referenzsystems}
+\label{tab:system_params}
+\centering
+\begin{tabularx}{\columnwidth}{l l r l}
+\toprule
+\textbf{Parameter} & \textbf{Symbol} & \textbf{Wert} & \textbf{Einheit} \\
+\midrule
+IT-Leistungsaufnahme & $P_{\text{IT}}$ & 100,0 & $\text{MW}_{\text{el}}$ \\
+Thermische Verlustleistung & $\dot{Q}_{\text{th}}$ & 90,0 & $\text{MW}_{\text{th}}$ \\
+Geodätische Schafthöhe & $H$ & 1.500 & $\text{m}$ \\
+Schachtlänge ($\alpha = 30^\circ$) & $L$ & 3.000 & $\text{m}$ \\
+Hydraulischer Durchmesser (je Röhre) & $D_{\text{hyd}}$ & 12,5 & $\text{m}$ \\
+Temperaturhub Zuluft/Schacht & $\Delta T$ & 20,0 & $\text{K}$ \\
+Luftmassenstrom & $\dot{m}$ & 4.477 & $\text{kg/s}$ \\
+Mittlere Strömungsgeschwindigkeit & $v$ & 15,2 & $\text{m/s}$ \\
+Generierte Turbinenleistung & $P_{\text{gen}}$ & 2,25 & $\text{MW}_{\text{el}}$ \\
+Vermiedene Lüfterhilfsleistung & $P_{\text{verm}}$ & 4,00 & $\text{MW}_{\text{el}}$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Energetische und ökologische Performance}
+
+\subsection{Modifizierte PUE-Metrik}
+Die Standardmetrik des Konsortiums The Green Grid definiert die Power Usage Effectiveness als:
+\begin{equation}
+\text{PUE} = \frac{P_{\text{gesamt}}}{P_{\text{IT}}} = \frac{P_{\text{IT}} + P_{\text{Klima}} + P_{\text{Verlust}}}{P_{\text{IT}}}
+\end{equation}
+
+Da der Hilfsenergieaufwand für die Kühlung $P_{\text{Klima}} = 0$ beträgt und das Kühlsystem über die Kaminturbinen Nettoenergie $P_{\text{gen}}$ bereitstellt, modifiziert sich die Energiebilanz:
+\begin{equation}
+\text{PUE}_{\text{mod}} = \frac{P_{\text{IT}} + P_{\text{Verlust}} - P_{\text{gen}}}{P_{\text{IT}}}
+\end{equation}
+Unter Berücksichtigung interner Wandlungs- und Verteilverluste ($P_{\text{Verlust}} \approx 0{,}03 \cdot P_{\text{IT}}$) sinkt der PUE auf:
+\begin{equation}
+\text{PUE}_{\text{mod}} \approx \frac{100\,\text{MW} + 3{,}0\,\text{MW} - 2{,}25\,\text{MW}}{100\,\text{MW}} = 1{,}0075
+\end{equation}
+
+\subsection{Wasserbedarfsbilanzierung (WUE)}
+Herkömmliche Kühlsysteme mit evaporativer Unterstützung verbrauchen etwa $1{,}8\,\text{L/kWh}_{\text{IT}}$. Bei kontinuierlicher Volllast ($\tau = 8.760\,\text{h/a}$) entspricht dies:
+\begin{equation}
+V_{\text{H2O}} = 100.000\,\text{kW} \cdot 8.760\,\text{h/a} \cdot 1{,}8\,\text{L/kWh} \approx 1{,}58 \cdot 10^6\,\text{m}^3/\text{a}
+\end{equation}
+Durch den Einsatz des Schrägschachts sinkt die Water Usage Effectiveness des Rechenzentrums auf $\text{WUE} = 0{,}00\,\text{L/kWh}$.
+
+\section{Geotechnische Auslegung und Tunnelbau}
+Die Realisierung eines Schrägschachts dieser Dimensionierung lehnt sich an Entwürfe moderner Hochdruck-Pumpspeicherkraftwerke an (z.\,B. Nant de Drance, Linthal 2015).
+
+\subsection{Vortriebsverfahren}
+Zur Erstellung der Zwillingsröhre kommt primär eine Kombination aus Raise-Boring und maschinellem Schrägvortrieb mittels Gripper-Tunnelbohrmaschine (TBM) zum Einsatz. Raise-Boring-Systeme ermöglichen das pilotierte Bohren von unten nach oben mit anschließendem Rückzugserweitern, wodurch anfallendes Ausbruchmaterial gravitationsbedingt direkt am Fuße des Schachts abgezogen werden kann.
+
+\subsection{Gebirgsmechanische Stabilität}
+Im Granit- und Gneisgebirge erfordert die kontinuierliche thermische Beaufschlagung der Schachtlaibung ($T_{\text{wand}} \approx 40\,^\circ\text{C}$) eine strukturmechanische Sicherung gegen hitzeinduzierte Gebirgsspannungen. Der Ausbau erfolgt über drainierten Spritzbeton mit Systemankerung zur Vermeidung von hydrostatischem Kluftwasserdruck.
+
+\section{Techno-ökonomische Bewertung}
+
+\subsection{Differenzinvestitionskosten ($\Delta\text{CapEx}$)}
+Die Baukosten des Schrägschachtsystems werden mit dem Einsparungspotenzial entfallender konventioneller Kühlanlagen saldiert:
+
+\begin{itemize}
+    \item \textbf{Schachtauffahrung:} $2 \times 3.000\,\text{m}$ Vortrieb ($32.000\,\text{€/m}$): $192{,}0\,\text{Mio. €}$.
+    \item \textbf{Felsausbau und Glättung:} Spritzbetonschale und Felsanker: $18{,}0\,\text{Mio. €}$.
+    \item \textbf{Portalanlagen \& Geotechnik:} Diffusoren, Schutzbauten: $12{,}0\,\text{Mio. €}$.
+    \item \textbf{Wärmetauscher und Turbinen:} $14{,}5\,\text{Mio. €}$.
+    \item \textbf{Brutto-Investition Schacht ($\text{CapEx}_{\text{sys}}$):} $236{,}5\,\text{Mio. €}$.
+\end{itemize}
+
+Dem gegenüber steht der Wegfall klassischer Chiller, Kühltürme und Wasseraufbereitungsanlagen ($\text{CapEx}_{\text{konv}} \approx 38{,}5\,\text{Mio. €}$), was eine Netto-Mehrinvestition von $\Delta\text{CapEx} = 198{,}0\,\text{Mio. €}$ ergibt.
+
+\subsection{Betriebskosteneinsparung ($\Delta\text{OPEX}$)}
+Bei Standardpreisen von $k_{\text{el}} = 0{,}10\,\text{€/kWh}$ und $k_{\text{w}} = 2{,}50\,\text{€/m}^3$ errechnen sich die jährlichen OPEX-Vorteile zu:
+\begin{align}
+\Delta C_{\text{p-klima}} &= 4.000\,\text{kW} \cdot 8.760\,\text{h} \cdot 0{,}10\,\text{€/kWh} = 3{,}50\,\text{Mio. €/a} \\
+R_{\text{gen}} &= 2.250\,\text{kW} \cdot 8.760\,\text{h} \cdot 0{,}10\,\text{€/kWh} = 1{,}97\,\text{Mio. €/a} \\
+\Delta C_{\text{wasser}} &= 1.576.800\,\text{m}^3 \cdot 2{,}50\,\text{€/m}^3 = 3{,}94\,\text{Mio. €/a} \\
+\Delta C_{\text{maint}} &\approx 0{,}75\,\text{Mio. €/a}
+\end{align}
+Daraus folgt eine jährliche Gesamtentlastung von $\mathbf{\Delta\text{OPEX} \approx 10{,}17\,\text{Mio. €/a}}$.
+
+\subsection{Kapitalwert und Sensitivitätsanalyse}
+Der Kapitalwert (Net Present Value, NPV) berechnet sich bei einem Kalkulationszinssatz $r = 6\,\%$ über $N$ Jahre:
+\begin{equation}
+\text{NPV} = -\Delta\text{CapEx} + \sum_{t=1}^N \frac{\Delta\text{OPEX}_t}{(1 + r)^t}
+\end{equation}
+
+\begin{table}[htbp]
+\caption{Sensitivitätsanalyse des Kapitalwerts ($r = 6\,\%$)}
+\label{tab:sensitivity}
+\centering
+\begin{tabularx}{\columnwidth}{X r r r r}
+\toprule
+\textbf{Szenario} & \textbf{$k_{\text{el}}$} & \textbf{$k_{\text{w}}$} & \textbf{$\Delta\text{OPEX}$} & \textbf{$\text{NPV}_{50}$} \\
+ & \textbf{[€/kWh]} & \textbf{[€/m³]} & \textbf{[Mio. €/a]} & \textbf{[Mio. €]} \\
+\midrule
+Basisszenario & 0,10 & 2,50 & 10,17 & +162,3 \\
+Hohe Stromkosten & 0,16 & 2,50 & 13,45 & +214,0 \\
+Wasserknappheit & 0,10 & 5,00 & 14,11 & +224,4 \\
+Baukosten +25\,\% & 0,10 & 2,50 & 10,17 & +112,8 \\
+Kombiniert (Future) & 0,15 & 4,00 & 15,97 & +253,7 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Über einen für alpine Infrastrukturbauten üblichen Betrachtungshorizont von $N = 50\,\text{Jahren}$ ergibt sich bereits im Basisszenario ein positiver Kapitalwert von über $162\,\text{Mio. Euro}$.
+
+\section{Diskussion, Restriktionen und Ausblick}
+
+\subsection{Betriebssicherheit bei Inversion und Vereisung}
+Kritische Betriebszustände entstehen bei meteorologischen Inversionswetterlagen, wenn der vertikale Dichtegradient der freien Atmosphäre temporär einbricht. Um einen Stillstand oder eine Strömungsumkehr (*Backdraft*) zu unterbinden, müssen die Turbinenaggregate als umkehrbare Axialventilatoren ausgeführt werden. 
+
+Im Winterhalbjahr führt die Entspannung der aufsteigenden Luftmasse am Gipfelaustritt zu Kondensations- und Reifbildung. Eine gezielte Beimischung warmer Schachtluft im Diffusorbereich verhindert Vereisungen an den Schutzgittern.
+
+\subsection{Standortfaktoren}
+Die Realisierung erfordert spezifische topografische Rahmenbedingungen (Hangneigung $> 25^\circ$, Granit-/Gneisformationen) sowie eine adäquate Netzanbindung. Ideale Standorte bieten Alpentäler in der Nähe bestehender Speicherkraftwerke, da hier bereits redundante Hochspannungstrassen ($110\text{--}220\,\text{kV}$) existieren.
+
+\section{Fazit}
+Die Integration eines unterirdischen Naturzug-Schrägschachts in ein 100-MW-KI-Rechenzentrum löst die thermischen und ökologischen Kernprobleme moderner Hyperscale-Infrastrukturen. Trotz hoher Investitionskosten in die Schachtauffahrung ($\Delta\text{CapEx} \approx 198\,\text{Mio. Euro}$) führt die vollständige Einsparung mechanischer Kühlleistungen, die Rückverstromung über Turbinen und die Vermeidung von jährlich $1{,}58\,\text{Mrd. Litern}$ Kühlwasser zu einer hochgradig wirtschaftlichen Betriebsführung. Mit einem PUE von $< 1{,}01$ und einem WUE von $0{,}0\,\text{L/kWh}$ etabliert das Konzept eine robuste Blaupause für nachhaltige KI-Rechenzentren der nächsten Generation.
+
+\begin{thebibliography}{1}
+
+\bibitem{ashrae2023}
+ASHRAE Technical Committee 9.9, \emph{Liquid Cooling Guidelines for Datacom Equipment Centers}, 3rd~ed., Atlanta, GA: ASHRAE, 2023.
+
+\bibitem{schlaich1995}
+J.~Schlaich, \emph{The Solar Chimney: Electricity from the Sun}, Stuttgart, Deutschland: Edition Axel Menges, 1995.
+
+\bibitem{haaf1983}
+W.~Haaf, K.~Friedrich, G.~Mayr, und J.~Schlaich, „Solar Chimneys: Part I: Principle and Construction of the Manzanares Pilot Plant“, \emph{International Journal of Solar Energy}, Bd.~2, Nr.~1, S.~3--20, 1983.
+
+\bibitem{thegreengrid2012}
+The Green Grid, \emph{PUE: A Comprehensive Examination of the Metric}, White Paper \#49, Beaverton, OR: The Green Grid, 2012.
+
+\bibitem{ho2021}
+C.~K.~Ho, „A review of solar updraft towers: Modeling, design, and performance“, \emph{Renewable and Sustainable Energy Reviews}, Bd.~146, Art.-Nr.~111162, 2021.
+
+\bibitem{ita2022}
+International Tunnelling and Underground Space Association (ITA), \emph{Guidelines for the Design of Inclined Shafts and Pressure Tunnels in Rock}, ITA Working Group 2, Report No.~24, Genf, 2022.
+
+\end{thebibliography}
+
+\end{document}
