@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Thermodynamische und techno-ökonomische Bewertung unterirdischer Naturzug-Schrägschächte zur passiven Kühlung und Energierückgewinnung in Hyperscale-KI-Rechenzentren</title>
+<style>
+  @page {
+    size: A4;
+    margin: 20mm 15mm 20mm 15mm;
+  }
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 10pt;
+    line-height: 1.25;
+    color: #111;
+    margin: 0;
+    padding: 0;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  h1 {
+    font-size: 18pt;
+    font-weight: bold;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .author {
+    font-size: 12pt;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .email {
+    font-size: 10pt;
+    font-style: italic;
+    color: #444;
+    margin-bottom: 15px;
+  }
+  .journal-tag {
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+  }
+  .abstract-box {
+    background: #f8f9fa;
+    border-left: 4px solid #0056b3;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    font-size: 9.5pt;
+  }
+  .abstract-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 9pt;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+  }
+  .content {
+    column-count: 2;
+    column-gap: 20px;
+    text-align: justify;
+  }
+  h2 {
+    font-size: 11pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 2px;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 10pt;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    break-after: avoid;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 8px;
+    text-indent: 12px;
+  }
+  .equation {
+    background: #f4f4f6;
+    padding: 6px 10px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 9pt;
+    text-align: center;
+    margin: 8px 0;
+    border-radius: 4px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 8.5pt;
+  }
+  th, td {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    padding: 5px;
+    text-align: left;
+  }
+  th {
+    font-weight: bold;
+    background: #eee;
+  }
+  ul {
+    padding-left: 15px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+  }
+  li {
+    margin-bottom: 3px;
+  }
+</style>
+</head>
+<body>
+
+<div class="journal-tag">IEEE Transactions on Sustainable Computing / Thermal Engineering — September 2026</div>
+
+<div class="header">
+  <h1>Thermodynamische und techno-ökonomische Bewertung unterirdischer Naturzug-Schrägschächte zur passiven Kühlung und Energierückgewinnung in Hyperscale-KI-Rechenzentren</h1>
+  <div class="author">Chu Duc Kien</div>
+  <div class="email">Korrespondenzadresse: mailiekien@icloud.com</div>
+</div>
+
+<div class="abstract-box">
+  <div class="abstract-title">Abstract</div>
+  Der exponentielle Anstieg von Trainingslasten künstlicher Intelligenz erfordert Rechenzentrumsleistungen im dreistelligen Megawatt-Bereich. Herkömmliche Kühlinfrastrukturen stoßen durch extremen Hilfsstrombedarf (Power Usage Effectiveness, PUE) und massiven Frischwasserverbrauch (Water Usage Effectiveness, WUE) an ökologische und infrastrukturelle Grenzen. Dieser Beitrag untersucht ein neuartiges Anlagenkonzept: die Kopplung eines flüssigkeitsgekühlten 100-MW-KI-Rechenzentrums mit einem bergmännisch aufgefahrenen Schrägschacht (&Delta;z = 1.500 m) zur Realisierung eines passiven Naturzug-Kühlsystems mit integrierter Energierückgewinnung. Thermodynamische Berechnungen zeigen, dass bei einer Kühlwassertemperatur von 60 °C ein kontinuierlicher Auftrieb mit einem Massenstrom von rund 4.480 kg/s induziert wird. Neben der vollständigen Eliminierung des mechanischen Kühlstrombedarfs (~4,0 MWel) und des jährlichen Wasserbedarfs (~1,58 &middot; 10^6 m³) ermöglicht eine Basisturbine die Rückspeisung von rund 2,25 MWel, wodurch der rechnerische PUE auf unter 1,01 sinkt. Eine techno-ökonomische Lebenszyklusanalyse belegt, dass sich die Mehrinvestition des Schachtbaus durch jährliche Betriebskosteneinsparungen von über 10 Mio. Euro amortisiert.
+</div>
+
+<div class="content">
+
+  <h2>I. Einleitung</h2>
+  <p>Die fortschreitende Skalierung tiefer künstlicher neuronaler Netze, insbesondere autoregressiver Foundation-Modelle, induziert einen beispiellosen Anstieg der Leistungsdichte in modernen Rechenzentren. Während klassische Cloud-Infrastrukturen historisch auf Wärmelasten von 5 bis 15 kW pro Rack ausgelegt waren, überschreiten dichte GPU-Cluster der aktuellen Generation regelmäßig Grenzwerte von 40 bis 120 kW pro Schrankeinheit. Rein luftgeführte Kühlsysteme stoßen hierbei an physikalische Grenzen.</p>
+  <p>Die Industrie reagiert hierauf mit dem flächendeckenden Übergang zu Direct Liquid Cooling (DLC). Da flüssige Wärmeträger eine um Größenordnungen höhere volumetrische Wärmekapazität als Luft aufweisen, erlaubt die Direktkühlung der Prozessorkerne eine Erhöhung der Rücklauftemperaturen auf ein Niveau von 55 bis 65 °C.</p>
+
+  <h2>II. Systemarchitektur</h2>
+  <p>Das Anlagenkonzept gliedert sich in drei funktionale Einheiten: die Serverkaverne am Fuße des Bergmassivs, die Wärmeübertragungs- und Turbinenstation sowie den bergmännisch aufgefahrenen Schrägschacht. Zur Gewährleistung einer redundanten Betriebsführung wird der Schacht als Doppelröhrensystem mit je D_hyd = 12,5 m ausgeführt. Bei einer geodätischen Höhendifferenz von H = 1.500 m und einem Neigungswinkel von 30° beträgt die Auffahrlänge L = 3.000 m.</p>
+
+  <h2>III. Thermodynamische Modellierung</h2>
+  <p>Der statische Gesamtauftrieb &Delta;p_stat ergibt sich durch die hydrostatische Dichtedifferenz zwischen der Umgebungsluft und der erwärmten Luftsäule:</p>
+  <div class="equation">&Delta;p_stat = &rho;_a &middot; g &middot; H &middot; ((T_i - T_a) / T_i) &approx; 1.033 Pa</div>
+  <p>Unter Einbeziehung von Wandreibung und Wärmetauscherverlusten verbleibt für die Turbinen ein nutzbarer Druck von &Delta;p_turb &approx; 405 Pa. Bei einem Volumenstrom von 4.264 m³/s erzeugen die Axialturbinen eine elektrische Nettoleistung von:</p>
+  <div class="equation">P_el = &eta;_turb &middot; V_dot &middot; &Delta;p_turb &approx; 2,25 MW_el</div>
+
+  <h2>IV. Performance & PUE</h2>
+  <p>Da der Hilfsenergieaufwand für die Kühlung P_Klima = 0 beträgt und das Kühlsystem über Kaminturbinen Nettoenergie zurückspeist, modifiziert sich die PUE-Bilanz auf:</p>
+  <div class="equation">PUE_mod = (P_IT + P_Verlust - P_gen) / P_IT &approx; 1,0075</div>
+  <p>Der Wasserverbrauch sinkt vollständig auf WUE = 0,0 L/kWh, was jährlich 1,58 Milliarden Liter Trinkwasser einspart.</p>
+
+  <h2>V. Techno-Ökonomie (CapEx / OPEX)</h2>
+  <table>
+    <tr><th>Kostenposition</th><th>Einsparung / Ertrag</th></tr>
+    <tr><td>Lüfterstrom-Wegfall (~4 MW)</td><td>3,50 Mio. € / Jahr</td></tr>
+    <tr><td>Turbinen-Rückspeisung (2,25 MW)</td><td>1,97 Mio. € / Jahr</td></tr>
+    <tr><td>Wassereinsparung (1,58 Mio. m³)</td><td>3,94 Mio. € / Jahr</td></tr>
+    <tr><td>Wartungsersparnis</td><td>0,75 Mio. € / Jahr</td></tr>
+    <tr><th>Gesamte OPEX-Ersparnis</th><th>~10,17 Mio. € / Jahr</th></tr>
+  </table>
+  <p>Bei einer Schachtbau-Nettoinvestition von &Delta;CapEx = 198 Mio. € ergibt sich über eine 50-jährige Nutzungsdauer ein positiver Kapitalwert (NPV) von <strong>+162,3 Mio. €</strong>.</p>
+
+  <h2>VI. Fazit</h2>
+  <p>Die Integration eines unterirdischen Naturzug-Schrägschachts in ein 100-MW-KI-Rechenzentrum etabliert eine hochgradig nachhaltige und wirtschaftliche Blaupause für KI-Infrastrukturen der nächsten Generation.</p>
+
+</div>
+</body>
+</html>
