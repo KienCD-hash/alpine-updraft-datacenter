@@ -8,6 +8,8 @@
 > **Thermodynamische und techno-ökonomische Bewertung unterirdischer Naturzug-Schrägschächte zur passiven Kühlung und Energierückgewinnung in Hyperscale-KI-Rechenzentren**  
 > **Autor:** Chu Duc Kien ([mailiekien@icloud.com](mailto:mailiekien@icloud.com))
 
+> **Status-Hinweis:** Dies ist eine unabhängige, nicht begutachtete Vorab-Veröffentlichung (Preprint) auf Zenodo. Es handelt sich um ein Konzeptpapier mit techno-ökonomischer Modellierung, nicht um eine peer-reviewte Publikation in einem Fachjournal. Rückmeldungen und fachliche Prüfung sind ausdrücklich erwünscht.
+
 ---
 
 ## 📌 Executive Summary
