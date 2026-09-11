@@ -49,15 +49,16 @@ graph TD
 ├── README.md              # Project overview & quickstart
 ├── CITATION.cff           # Citation metadata for academic references
 ├── LICENSE                # Open Research License (MIT & CC-BY-4.0)
-├── HACKER_NEWS_POST.md    # Launch strategy & submission text for Hacker News
-└── TWITTER_THREAD.md      # Launch copy & thread structure for X/Twitter
+└── promo/
+    ├── HACKER_NEWS_POST.md    # Launch strategy & submission text for Hacker News
+    └── TWITTER_THREAD.md      # Launch copy & thread structure for X/Twitter
 ```
 
 ---
 
 ## 🛠️ How to Compile the LaTeX Paper
 
-You can compile [`paper.tex`](file:///Users/chuk/.gemini/antigravity/scratch/rechenzenter/paper.tex) locally using TeX Live / MacTeX, or online via Overleaf:
+You can compile [`paper.tex`](paper.tex) locally using TeX Live / MacTeX, or online via Overleaf:
 
 ```bash
 # Using pdflatex
