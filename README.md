@@ -77,9 +77,9 @@ If you use this research, formulas, or concepts in your work, please cite it usi
 ```bibtex
 @techreport{alpine_updraft_datacenter_2026,
   title={Thermodynamische und techno-oekonomische Bewertung unterirdischer Naturzug-Schraegschaechte zur passiven Kuehlung und Energierueckgewinnung in Hyperscale-KI-Rechenzentren},
-  author={Alpine Data Center Open Research Group},
+  author={Chu, Duc Kien},
   year={2026},
-  institution={Open Science Initiative},
+  institution={Independent Research},
   url={https://github.com/KienCD-hash/alpine-updraft-datacenter}
 }
 ```
