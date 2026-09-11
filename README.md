@@ -92,3 +92,9 @@ If you use this research, formulas, or concepts in your work, please cite it usi
 ## 📜 License
 
 Distributed under the [MIT License](LICENSE) and [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
+
+---
+
+## 🤖 Methodik-Hinweis
+
+Die technischen Berechnungen (Thermodynamik, CapEx/OPEX-Modellierung) wurden mit KI-gestützten Recherche- und Rechenwerkzeugen erstellt und vom Autor konzeptionell geprüft. Eine unabhängige fachliche Validierung durch Experten aus Verfahrenstechnik/Bauingenieurwesen steht noch aus — Feedback ist willkommen.
