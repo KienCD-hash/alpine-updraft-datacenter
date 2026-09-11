@@ -1,3 +1,5 @@
+> **Veraltet (September 2026):** Dieser Text bezieht sich auf die Erstfassung des Preprints. Die dort genannten Zahlen (2,25 MW Turbinenleistung, PUE < 1,01, NPV +162,3 Mio. €) wurden in Revision v2 korrigiert (≈ 1,4 MW, PUE ≈ 1,016, NPV ≈ −49 Mio. € im Basisszenario). Nicht in dieser Form verwenden – siehe README und paper.tex.
+
 # 🐦 X / Twitter Viral Thread Launch Copy
 
 Use this thread copy when posting to X/Twitter. Attach a diagram or 3D render image to Tweet 1.

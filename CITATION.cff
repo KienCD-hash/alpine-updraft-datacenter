@@ -5,9 +5,12 @@ authors:
     given-names: "Duc Kien"
     email: "mailiekien@icloud.com"
 title: "Thermodynamische und techno-ökonomische Bewertung unterirdischer Naturzug-Schrägschächte zur passiven Kühlung und Energierückgewinnung in Hyperscale-KI-Rechenzentren"
-version: 1.0.0
+version: 2.0.0
 date-released: 2026-09-11
-url: "https://github.com/KienCD-hash/alpine-updraft-datacenter"
+doi: 10.5281/zenodo.22698911
+url: "https://doi.org/10.5281/zenodo.22698911"
+repository-code: "https://github.com/KienCD-hash/alpine-updraft-datacenter"
+type: generic
 keywords:
   - data center cooling
   - direct liquid cooling

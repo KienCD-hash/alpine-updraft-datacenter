@@ -4,9 +4,13 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](LICENSE)
 [![Format: IEEEtran](https://img.shields.io/badge/LaTeX-IEEEtran-blue.svg)](paper.tex)
 [![Status: Open Research](https://img.shields.io/badge/Status-Open%20Research-green.svg)](#)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22698911.svg)](https://doi.org/10.5281/zenodo.22698911)
 
 > **Thermodynamische und techno-ökonomische Bewertung unterirdischer Naturzug-Schrägschächte zur passiven Kühlung und Energierückgewinnung in Hyperscale-KI-Rechenzentren**  
-> **Autor:** Chu Duc Kien ([mailiekien@icloud.com](mailto:mailiekien@icloud.com))
+> **Autor:** Chu Duc Kien ([mailiekien@icloud.com](mailto:mailiekien@icloud.com))  
+> **Preprint:** [doi:10.5281/zenodo.22698911](https://doi.org/10.5281/zenodo.22698911) (Concept-DOI, zeigt immer auf die aktuelle Version) · v2: [doi:10.5281/zenodo.22707524](https://doi.org/10.5281/zenodo.22707524) · v1 (überholt): [doi:10.5281/zenodo.22698912](https://doi.org/10.5281/zenodo.22698912)
+
+> **Revision v2 (September 2026):** Eine unabhängige Nachrechnung hat drei Fehler in der Erstfassung aufgedeckt: Die Turbinenleistung (2,25 MW) war aus der eigenen Druckverlustbilanz nicht herleitbar (korrekt ≈ 1,4 MW), die Schachtgeometrie war intern inkonsistent, und der Kapitalwert (+162,3 Mio. €) ließ sich aus der angegebenen Formel nicht reproduzieren (korrekt ≈ −49 Mio. € im Basisszenario). Das Fazit lautet jetzt: **thermodynamisch robust, im Basisszenario wirtschaftlich nicht tragfähig, positiv erst bei hohen Wasser-/Strompreisen.** Details im Revisionsvermerk am Ende von `paper.tex`.
 
 > **Status-Hinweis:** Dies ist eine unabhängige, nicht begutachtete Vorab-Veröffentlichung (Preprint) auf Zenodo. Es handelt sich um ein Konzeptpapier mit techno-ökonomischer Modellierung, nicht um eine peer-reviewte Publikation in einem Fachjournal. Rückmeldungen und fachliche Prüfung sind ausdrücklich erwünscht.
 
@@ -23,8 +27,8 @@ graph TD
     A["100 MW AI Cluster (DLC Waste Heat 90 MWth @ 60°C)"] --> B["Base Liquid-to-Air Heat Exchanger"]
     B -->|Heat Differential ΔT = 20K| C["1,500m Vertical Inclined Mountain Shaft"]
     C -->|Thermosiphon Airflow ~4,480 kg/s| D["Base Axial Turbines"]
-    D -->|+2.25 MWel Electricity Generation| E["Net Grid / Facility Power"]
-    C -->|Peak Summit Exhaust| F["Zero-Water Passive Dry Cooling (PUE < 1.01)"]
+    D -->|+1.4 MWel Electricity Generation| E["Net Grid / Facility Power"]
+    C -->|Peak Summit Exhaust| F["Zero-Water Passive Dry Cooling (PUE ~1.016)"]
 ```
 
 ---
@@ -33,11 +37,11 @@ graph TD
 
 | Metric | Industry Standard (100 MW) | Alpine Updraft Shaft | Impact |
 |---|---|---|---|
-| **PUE (Power Usage Effectiveness)** | 1.15 – 1.25 | **< 1.01** (Net ~1.0075) | Eliminates ~4 MW fan power |
+| **PUE (Power Usage Effectiveness)** | 1.15 – 1.25 | **~1.016** (1.03 without turbine credit) | Eliminates ~4 MW fan power |
 | **WUE (Water Usage Effectiveness)** | 1.5 – 2.0 L/kWh (~1.58B L/yr) | **0.0 L/kWh** | **100% Zero Water Consumption** |
-| **Energy Recovery** | 0.0 MW | **+2.25 MWel Net** | Recovers power via base turbines |
-| **Annual OPEX Savings** | Baseline | **~$10.17 Million / year** | Electricity + Water + Maintenance |
-| **50-Year Net Present Value (NPV50)** | Baseline | **+$162.3 Million** | Amortizes $198M Tunneling CapEx |
+| **Energy Recovery** | 0.0 MW | **+1.41 MWel Net** | Recovers power via base turbines (~41 % of static draft available to turbine) |
+| **Annual OPEX Savings** | Baseline | **~€9.43 Million / year** | Fan power + Water + Maintenance + Turbine |
+| **50-Year Net Present Value (NPV50, r = 6 %)** | Baseline | **−€49.3 Million** (base case) | Does **not** amortize €198M net CapEx at €0.10/kWh and €2.50/m³; positive only at water ≥ €5/m³ or combined high energy/water prices |
 
 ---
 
@@ -83,7 +87,9 @@ If you use this research, formulas, or concepts in your work, please cite it usi
   author={Chu, Duc Kien},
   year={2026},
   institution={Independent Research},
-  url={https://github.com/KienCD-hash/alpine-updraft-datacenter}
+  note={Preprint, Revision v2},
+  doi={10.5281/zenodo.22698911},
+  url={https://doi.org/10.5281/zenodo.22698911}
 }
 ```
 

@@ -136,7 +136,7 @@
 
 <div class="abstract-box">
   <div class="abstract-title">Abstract</div>
-  Der exponentielle Anstieg von Trainingslasten künstlicher Intelligenz erfordert Rechenzentrumsleistungen im dreistelligen Megawatt-Bereich. Herkömmliche Kühlinfrastrukturen stoßen durch extremen Hilfsstrombedarf (Power Usage Effectiveness, PUE) und massiven Frischwasserverbrauch (Water Usage Effectiveness, WUE) an ökologische und infrastrukturelle Grenzen. Dieser Beitrag untersucht ein neuartiges Anlagenkonzept: die Kopplung eines flüssigkeitsgekühlten 100-MW-KI-Rechenzentrums mit einem bergmännisch aufgefahrenen Schrägschacht (&Delta;z = 1.500 m) zur Realisierung eines passiven Naturzug-Kühlsystems mit integrierter Energierückgewinnung. Thermodynamische Berechnungen zeigen, dass bei einer Kühlwassertemperatur von 60 °C ein kontinuierlicher Auftrieb mit einem Massenstrom von rund 4.480 kg/s induziert wird. Neben der vollständigen Eliminierung des mechanischen Kühlstrombedarfs (~4,0 MWel) und des jährlichen Wasserbedarfs (~1,58 &middot; 10^6 m³) ermöglicht eine Basisturbine die Rückspeisung von rund 2,25 MWel, wodurch der rechnerische PUE auf unter 1,01 sinkt. Eine techno-ökonomische Lebenszyklusanalyse belegt, dass sich die Mehrinvestition des Schachtbaus durch jährliche Betriebskosteneinsparungen von über 10 Mio. Euro amortisiert.
+  Der exponentielle Anstieg von Trainingslasten künstlicher Intelligenz erfordert Rechenzentrumsleistungen im dreistelligen Megawatt-Bereich. Herkömmliche Kühlinfrastrukturen stoßen durch extremen Hilfsstrombedarf (Power Usage Effectiveness, PUE) und massiven Frischwasserverbrauch (Water Usage Effectiveness, WUE) an ökologische und infrastrukturelle Grenzen. Dieser Beitrag untersucht ein neuartiges Anlagenkonzept: die Kopplung eines flüssigkeitsgekühlten 100-MW-KI-Rechenzentrums mit einem bergmännisch aufgefahrenen Schrägschacht (&Delta;z = 1.500 m) zur Realisierung eines passiven Naturzug-Kühlsystems mit integrierter Energierückgewinnung. Thermodynamische Berechnungen zeigen, dass bei einer Kühlwassertemperatur von 60 °C ein kontinuierlicher Auftrieb mit einem Massenstrom von rund 4.480 kg/s induziert wird. Neben der vollständigen Eliminierung des mechanischen Kühlstrombedarfs (~4,0 MWel) und des jährlichen Wasserbedarfs (~1,58 &middot; 10^6 m³) ermöglicht eine Basisturbine die Rückspeisung von rund 1,4 MWel, wodurch der rechnerische PUE auf etwa 1,016 sinkt. Eine techno-ökonomische Lebenszyklusanalyse ergibt jährliche Betriebskosteneinsparungen von rund 9,4 Mio. Euro; bei einer Netto-Mehrinvestition von 198 Mio. Euro und 6 % Kalkulationszins bleibt der Kapitalwert über 50 Jahre im Basisszenario jedoch negativ (≈ −49 Mio. Euro). Ein positiver Kapitalwert stellt sich erst bei deutlich höheren Strom- oder Wasserpreisen ein. Das Konzept ist damit thermodynamisch tragfähig, wirtschaftlich aber standort- und preisabhängig.
 </div>
 
 <div class="content">
@@ -146,32 +146,35 @@
   <p>Die Industrie reagiert hierauf mit dem flächendeckenden Übergang zu Direct Liquid Cooling (DLC). Da flüssige Wärmeträger eine um Größenordnungen höhere volumetrische Wärmekapazität als Luft aufweisen, erlaubt die Direktkühlung der Prozessorkerne eine Erhöhung der Rücklauftemperaturen auf ein Niveau von 55 bis 65 °C.</p>
 
   <h2>II. Systemarchitektur</h2>
-  <p>Das Anlagenkonzept gliedert sich in drei funktionale Einheiten: die Serverkaverne am Fuße des Bergmassivs, die Wärmeübertragungs- und Turbinenstation sowie den bergmännisch aufgefahrenen Schrägschacht. Zur Gewährleistung einer redundanten Betriebsführung wird der Schacht als Doppelröhrensystem mit je D_hyd = 12,5 m ausgeführt. Bei einer geodätischen Höhendifferenz von H = 1.500 m und einem Neigungswinkel von 30° beträgt die Auffahrlänge L = 3.000 m.</p>
+  <p>Das Anlagenkonzept gliedert sich in drei funktionale Einheiten: die Serverkaverne am Fuße des Bergmassivs, die Wärmeübertragungs- und Turbinenstation sowie den bergmännisch aufgefahrenen Schrägschacht. Zur Gewährleistung einer redundanten Betriebsführung wird der Schacht als Doppelröhrensystem mit je D_hyd = 13,4 m (Gesamtquerschnitt ≈ 282 m², v ≈ 15 m/s) ausgeführt. Bei einer geodätischen Höhendifferenz von H = 1.500 m und einem Neigungswinkel von 30° beträgt die Auffahrlänge L = 3.000 m.</p>
 
   <h2>III. Thermodynamische Modellierung</h2>
   <p>Der statische Gesamtauftrieb &Delta;p_stat ergibt sich durch die hydrostatische Dichtedifferenz zwischen der Umgebungsluft und der erwärmten Luftsäule:</p>
   <div class="equation">&Delta;p_stat = &rho;_a &middot; g &middot; H &middot; ((T_i - T_a) / T_i) &approx; 1.033 Pa</div>
-  <p>Unter Einbeziehung von Wandreibung und Wärmetauscherverlusten verbleibt für die Turbinen ein nutzbarer Druck von &Delta;p_turb &approx; 405 Pa. Bei einem Volumenstrom von 4.264 m³/s erzeugen die Axialturbinen eine elektrische Nettoleistung von:</p>
-  <div class="equation">P_el = &eta;_turb &middot; V_dot &middot; &Delta;p_turb &approx; 2,25 MW_el</div>
+  <p>Nach Abzug von Wärmetauscher (180 Pa), Wandreibung (349 Pa) und Formverlusten (80 Pa) verbleibt für die Turbinen ein nutzbarer Druck von &Delta;p_turb &approx; 424 Pa, also rund 41 % des Auftriebs. Bei einem Volumenstrom von 4.264 m³/s und &eta;_turb = 0,78 erzeugen die Axialturbinen eine elektrische Nettoleistung von:</p>
+  <div class="equation">P_el = &eta;_turb &middot; V_dot &middot; &Delta;p_turb &approx; 0,78 &middot; 4.264 &middot; 424 &approx; 1,41 MW_el</div>
 
   <h2>IV. Performance & PUE</h2>
   <p>Da der Hilfsenergieaufwand für die Kühlung P_Klima = 0 beträgt und das Kühlsystem über Kaminturbinen Nettoenergie zurückspeist, modifiziert sich die PUE-Bilanz auf:</p>
-  <div class="equation">PUE_mod = (P_IT + P_Verlust - P_gen) / P_IT &approx; 1,0075</div>
+  <div class="equation">PUE_mod = (P_IT + P_Verlust - P_gen) / P_IT = (100 + 3,0 - 1,41) / 100 &approx; 1,016</div>
   <p>Der Wasserverbrauch sinkt vollständig auf WUE = 0,0 L/kWh, was jährlich 1,58 Milliarden Liter Trinkwasser einspart.</p>
 
   <h2>V. Techno-Ökonomie (CapEx / OPEX)</h2>
   <table>
     <tr><th>Kostenposition</th><th>Einsparung / Ertrag</th></tr>
     <tr><td>Lüfterstrom-Wegfall (~4 MW)</td><td>3,50 Mio. € / Jahr</td></tr>
-    <tr><td>Turbinen-Rückspeisung (2,25 MW)</td><td>1,97 Mio. € / Jahr</td></tr>
+    <tr><td>Turbinen-Rückspeisung (1,41 MW)</td><td>1,24 Mio. € / Jahr</td></tr>
     <tr><td>Wassereinsparung (1,58 Mio. m³)</td><td>3,94 Mio. € / Jahr</td></tr>
     <tr><td>Wartungsersparnis</td><td>0,75 Mio. € / Jahr</td></tr>
-    <tr><th>Gesamte OPEX-Ersparnis</th><th>~10,17 Mio. € / Jahr</th></tr>
+    <tr><th>Gesamte OPEX-Ersparnis</th><th>~9,43 Mio. € / Jahr</th></tr>
   </table>
-  <p>Bei einer Schachtbau-Nettoinvestition von &Delta;CapEx = 198 Mio. € ergibt sich über eine 50-jährige Nutzungsdauer ein positiver Kapitalwert (NPV) von <strong>+162,3 Mio. €</strong>.</p>
+  <p>Bei einer Schachtbau-Nettoinvestition von &Delta;CapEx = 198 Mio. € ergibt sich über eine 50-jährige Nutzungsdauer bei r = 6 % (Rentenbarwertfaktor 15,76) ein Kapitalwert (NPV) von <strong>−49,3 Mio. €</strong> im Basisszenario. Positiv wird der Kapitalwert erst bei Wasserpreisen ab ~5 €/m³ (+12,8 Mio. €) oder kombiniert hohen Strom- und Wasserpreisen (+25,3 Mio. €); eine Baukostenüberschreitung um 25 % senkt ihn auf −98,8 Mio. €.</p>
 
   <h2>VI. Fazit</h2>
-  <p>Die Integration eines unterirdischen Naturzug-Schrägschachts in ein 100-MW-KI-Rechenzentrum etabliert eine hochgradig nachhaltige und wirtschaftliche Blaupause für KI-Infrastrukturen der nächsten Generation.</p>
+  <p>Die Integration eines unterirdischen Naturzug-Schrägschachts in ein 100-MW-KI-Rechenzentrum ist thermodynamisch robust: Kühlung ohne Hilfsenergie und ohne Frischwasser, PUE ≈ 1,016, WUE = 0. Wirtschaftlich ist das Konzept im Basisszenario nicht tragfähig und wird erst unter hohen Wasser- oder Strompreisen positiv. Es ist daher weniger eine allgemeine Blaupause als eine standortspezifische Option für Regionen, in denen Wasserverfügbarkeit oder Energiepreise konventionelle Kühlung einschränken.</p>
+
+  <h2>Revisionsvermerk</h2>
+  <p>Diese Fassung korrigiert die Erstfassung in drei Punkten: Turbinenleistung (2,25 → ≈ 1,4 MWel, aus der eigenen Druckverlustbilanz nicht herleitbar), Schachtgeometrie (intern inkonsistent, auf v ≈ 15 m/s vereinheitlicht) und Kapitalwert (+162,3 → ≈ −49 Mio. €, aus der angegebenen Formel nicht reproduzierbar). Die Fehler wurden durch eine unabhängige Nachrechnung mit KI-Unterstützung aufgedeckt.</p>
 
 </div>
 </body>
