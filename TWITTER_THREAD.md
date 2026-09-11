@@ -59,7 +59,7 @@ Over a 50-year infrastructure lifecycle, Net Present Value (NPV) is **+$162M**.
 We published the complete paper, thermodynamic equations, and LaTeX source under MIT / CC-BY license.  
 
 Read the paper & contribute on GitHub:  
-https://github.com/YOUR_USERNAME/alpine-updraft-datacenter
+https://github.com/KienCD-hash/alpine-updraft-datacenter
 
 ---
 
@@ -81,4 +81,4 @@ Ein Thread zum Konzept 🧵👇
 
 **Tweet 2:**  
 Das vollständige Paper, alle Formeln und der LaTeX-Code sind Open Source auf GitHub:  
-https://github.com/YOUR_USERNAME/alpine-updraft-datacenter
+https://github.com/KienCD-hash/alpine-updraft-datacenter

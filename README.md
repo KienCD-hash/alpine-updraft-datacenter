@@ -80,7 +80,7 @@ If you use this research, formulas, or concepts in your work, please cite it usi
   author={Alpine Data Center Open Research Group},
   year={2026},
   institution={Open Science Initiative},
-  url={https://github.com/YOUR_USERNAME/alpine-updraft-datacenter}
+  url={https://github.com/KienCD-hash/alpine-updraft-datacenter}
 }
 ```
 

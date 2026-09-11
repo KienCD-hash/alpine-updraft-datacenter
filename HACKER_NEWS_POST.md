@@ -28,6 +28,6 @@ Submit to Hacker News on Tuesday or Wednesday morning (7:00 AM - 9:00 AM PST / 1
 > - **Financials:** Tunneling CapEx is ~$198M net. OPEX savings from electricity + water + maintenance exceed $10.1M/year, yielding a positive NPV of +$162M over a 50-year lifecycle.
 >
 > Full paper (IEEEtran LaTeX source, PDF & formulas) is in the repo under CC-BY / MIT license:
-> https://github.com/YOUR_USERNAME/alpine-updraft-datacenter
+> https://github.com/KienCD-hash/alpine-updraft-datacenter
 >
 > Would love to get HN's feedback on the thermodynamic assumptions, tunneling geotechnics, and winter inversion handling!
